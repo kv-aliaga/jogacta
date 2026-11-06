@@ -1,0 +1,18 @@
+{
+  "name": "ACTA Experience — Operação Resgate",
+  "short_name": "Operação Resgate",
+  "description": "Quatro semanas de decisões de gestão usando PDCA.",
+  "theme_color": "#003654",
+  "background_color": "#eaf2f3",
+  "display": "standalone",
+  "start_url": "/",
+  "lang": "pt-BR",
+  "icons": [
+    {
+      "src": "/factory-icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

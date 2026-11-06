@@ -1,0 +1,24 @@
+# Dependências
+node_modules/
+
+# Builds e arquivos gerados pelo TypeScript
+dist/
+*.tsbuildinfo
+agents/figma/chrome-temp/
+agents/figma/chrome-mobile-temp/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+# Arquivos locais e editor
+.env
+.env.*
+!.env.example
+.vscode/
+.idea/
+*.swp
+*.swo
+Thumbs.db
+.DS_Store

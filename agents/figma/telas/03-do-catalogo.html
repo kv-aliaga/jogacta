@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#F5F7F8">
+  <title>DO · Escolha um projeto | ACTA Experience</title>
+  <style>
+    @font-face{font-family:'Plus Jakarta Sans';src:url(../assets/plus-jakarta-400.ttf) format('truetype');font-weight:400;font-display:swap}
+    @font-face{font-family:'Plus Jakarta Sans';src:url(../assets/plus-jakarta-500.ttf) format('truetype');font-weight:500;font-display:swap}
+    @font-face{font-family:'Plus Jakarta Sans';src:url(../assets/plus-jakarta-600.ttf) format('truetype');font-weight:600;font-display:swap}
+    @font-face{font-family:'Plus Jakarta Sans';src:url(../assets/plus-jakarta-700.ttf) format('truetype');font-weight:700;font-display:swap}
+    :root{--canvas:#F5F7F8;--page:#fff;--surface:#fff;--subtle:#F6F6F6;--aqua:#E3F7F7;--text:#253132;--secondary:#505B60;--muted:#66707A;--accent:#087C86;--primary:#0AC2CA;--hover:#39A4AA;--pressed:#087C86;--border:#D6DCDD;--focus:#025A8A;--plan:#025A8A;--success:#026B66;--success-bg:#E5F5EF;--warning:#725500;--warning-bg:#FFF2C9;--disabled:#E2EBED;--disabled-text:#60777C;--nav:#1F1F1F;--nav-text:#A6B0B4;--s4:4px;--s8:8px;--s12:12px;--s16:16px;--s24:24px;--s32:32px;--r8:8px;--r12:12px;--r16:16px;--r20:20px;--pill:999px}
+    *{box-sizing:border-box}html{min-width:320px;background:var(--canvas);color-scheme:light}body{min-width:320px;margin:0;background:var(--canvas);color:var(--text);font-family:'Plus Jakarta Sans',sans-serif;-webkit-font-smoothing:antialiased}button{font:inherit;touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+    .skip{position:fixed;z-index:10;left:12px;top:12px;padding:12px 16px;border:2px solid var(--focus);border-radius:var(--r8);background:white;color:var(--text);transform:translateY(-160%)}.skip:focus{transform:none}
+    .app{min-height:100vh;display:grid;grid-template-columns:108px minmax(0,1fr);background:var(--page)}.sidebar{display:flex;flex-direction:column;align-items:center;gap:22px;padding:18px 9px;background:var(--nav);color:white}.brand img{width:52px;height:52px;object-fit:contain}.cycle{width:100%}.cycle ol{display:grid;gap:7px;margin:0;padding:0;list-style:none}.cycle li{position:relative;min-height:62px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;border-radius:var(--r12);color:var(--nav-text);font-size:10px;font-weight:700}.cycle li[aria-current=step]{background:#304144;color:white;box-shadow:inset 3px 0 var(--primary)}.cycle li:not(:last-child)::after{content:"";position:absolute;left:calc(50% - 1px);bottom:-8px;width:2px;height:8px;background:#505B60}.cycle b{width:24px;height:24px;display:grid;place-items:center;border:1px solid currentColor;border-radius:50%;font-size:11px}.cycle [aria-current=step] b{border-color:#7ACFD4;background:var(--plan)}
+    .workspace{min-width:0;min-height:100vh;display:flex;flex-direction:column;background:var(--canvas)}.topbar{height:58px;flex:0 0 58px;display:flex;align-items:center;justify-content:space-between;padding:0 30px;border-bottom:1px solid var(--border);background:var(--page)}.topbar-label{color:var(--secondary);font-size:13px;font-weight:600}.topmeta{display:flex;align-items:center;gap:8px}.chip{min-height:33px;display:inline-flex;align-items:center;gap:7px;padding:0 11px;border:1px solid var(--border);border-radius:var(--pill);background:var(--subtle);font-size:12px;font-weight:600;white-space:nowrap}.chip.phase{border-color:transparent;background:var(--aqua);color:var(--plan)}.phase-dot{width:8px;height:8px;border-radius:50%;background:var(--plan)}.mobile-cycle{display:none}
+    main{width:min(1320px,100%);min-width:0;flex:1;display:flex;flex-direction:column;gap:10px;margin:0 auto;padding:17px 30px 16px}.intro{display:flex;align-items:center;justify-content:space-between;gap:20px}.intro h1{margin:0;font-size:28px;line-height:35px;letter-spacing:-.6px}.intro p{max-width:780px;margin:3px 0 0;color:var(--secondary);font-size:13px;line-height:19px}
+    .metrics{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:0;padding:0}.metric{min-width:0;min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:8px;padding:10px 13px;border:1px solid var(--border);border-radius:var(--r12);background:var(--page)}.metric dt{margin:0 0 3px;color:var(--muted);font-size:11px;line-height:15px;font-weight:600}.metric dd{margin:0;font-size:21px;line-height:25px;font-weight:700;font-variant-numeric:tabular-nums;white-space:nowrap}.metric.balance{border-color:#B5DDDF;background:var(--aqua)}.metric.balance dd{color:var(--accent);font-size:16px}.coin-large{width:43px;height:43px;flex:none;object-fit:contain}.coin-small{width:18px;height:18px;flex:none;object-fit:contain;vertical-align:middle}
+    .catalog-heading{display:flex;align-items:baseline;justify-content:space-between;gap:12px}.catalog-heading h2{margin:0;font-size:15px;line-height:21px}.catalog-heading p{margin:0;color:var(--muted);font-size:11px;line-height:16px}.projects{min-width:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}.project{min-width:0;min-height:126px;position:relative;display:grid;grid-template-rows:auto 1fr auto;gap:6px;padding:10px 12px;border:1px solid var(--border);border-radius:var(--r16);background:var(--page);color:var(--text);text-align:left;cursor:pointer;transition:border-color .12s ease,background-color .12s ease,transform .12s ease,box-shadow .12s ease}.project:hover:not(:disabled){border-color:var(--accent);transform:translateY(-1px);box-shadow:0 3px 10px #25313212}.project:active:not(:disabled){transform:translateY(1px)}.project[aria-pressed=true]{border:2px solid var(--accent);padding:9px 11px;background:var(--aqua);box-shadow:0 0 0 2px #087c8622}.project:disabled{background:#F0F3F4;color:var(--disabled-text);cursor:not-allowed}.project-top{min-width:0;display:flex;align-items:flex-start;justify-content:space-between;gap:7px}.project-name{margin:0;font-size:13px;line-height:17px;font-weight:700}.cost{flex:none;display:inline-flex;align-items:center;gap:3px;padding:3px 6px;border:1px solid #B5DDDF;border-radius:var(--pill);background:var(--aqua);color:var(--accent);font-size:11px;line-height:15px;font-weight:700;white-space:nowrap}.cost img{width:16px;height:16px;object-fit:contain}.effects{align-self:center;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:4px}.effect{min-width:0;padding:4px 5px;border-radius:var(--r8);background:var(--subtle);font-size:10px;line-height:13px}.effect span{display:block;color:var(--muted);font-size:9px;line-height:12px}.effect strong{display:block;font-size:11px;line-height:14px;font-weight:700}.category{display:flex;align-items:center;justify-content:space-between;gap:6px;color:var(--secondary);font-size:10px;line-height:13px}.category strong{font-weight:700}.availability{font-weight:700;color:var(--warning)}.project:disabled .cost{border-color:var(--border);background:var(--disabled);color:var(--disabled-text)}
+    .bottom{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:12px}.help{margin:0;color:var(--secondary);font-size:11px;line-height:16px}.selection{display:flex;align-items:center;gap:12px}.selected-name{max-width:240px;overflow-wrap:anywhere;color:var(--secondary);font-size:11px;line-height:15px}.review{min-height:44px;padding:0 18px;border:0;border-radius:var(--r12);background:var(--accent);color:#fff;font-size:13px;font-weight:700;cursor:pointer;white-space:nowrap;transition:background-color .12s ease,transform .12s ease}.review:hover:not(:disabled){background:var(--pressed);transform:translateY(-1px)}.review:active:not(:disabled){transform:translateY(1px)}.review:disabled{background:var(--disabled);color:var(--disabled-text);cursor:not-allowed}.feedback{grid-column:1/-1;margin:0;color:var(--secondary);font-size:11px;line-height:15px}.feedback:empty{display:none}
+    :where(button,a):focus-visible{outline:3px solid var(--focus);outline-offset:3px}
+    dialog{width:min(520px,calc(100vw - 28px));max-width:none;max-height:min(90dvh,700px);padding:0;overflow:auto;border:1px solid var(--border);border-radius:20px;background:var(--page);color:var(--text);box-shadow:0 18px 70px #101b1e45}dialog::backdrop{background:#172427a8;backdrop-filter:blur(3px)}.dialog-body{padding:22px}.dialog-top{display:flex;align-items:flex-start;justify-content:space-between;gap:14px}.dialog-top h2{margin:0;font-size:22px;line-height:29px}.close-dialog{width:44px;height:44px;flex:none;border:1px solid var(--border);border-radius:var(--r12);background:var(--page);color:var(--text);font-size:20px;cursor:pointer}.dialog-project{margin:8px 0 14px;color:var(--secondary);font-size:14px;line-height:20px}.money-summary{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:0 0 14px}.money-item{min-width:0;padding:10px;border:1px solid var(--border);border-radius:var(--r12);background:var(--subtle)}.money-item dt{margin:0 0 5px;color:var(--muted);font-size:10px;line-height:14px;font-weight:600}.money-item dd{margin:0;display:flex;align-items:center;gap:4px;color:var(--text);font-size:14px;line-height:19px;font-weight:700;white-space:nowrap}.dialog-effects{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:0 0 12px}.dialog-effect{padding:9px;border:1px solid var(--border);border-radius:var(--r12);font-size:12px;line-height:17px}.dialog-effect span{display:block;margin-bottom:2px;color:var(--muted);font-size:10px}.dialog-category{margin:0;padding:9px 11px;border-radius:var(--r8);background:var(--aqua);color:var(--secondary);font-size:12px;line-height:17px}.dialog-help{margin:10px 0 0;color:var(--secondary);font-size:11px;line-height:16px}.dialog-warning{margin:10px 0 0;padding:10px 12px;border-radius:var(--r8);background:var(--warning-bg);color:#4D3A00;font-size:12px;line-height:17px}.dialog-actions{display:flex;justify-content:flex-end;gap:9px;margin-top:18px}.cancel,.confirm{min-height:46px;padding:0 17px;border:1px solid var(--accent);border-radius:var(--r12);font-size:13px;font-weight:700;cursor:pointer}.cancel{background:var(--page);color:var(--accent)}.confirm{background:var(--accent);color:#fff}.cancel:hover{background:var(--aqua)}.confirm:hover:not(:disabled){background:var(--pressed)}.confirm:disabled{border-color:var(--border);background:var(--disabled);color:var(--disabled-text);cursor:not-allowed}.dialog-status{margin:9px 0 0;color:var(--secondary);font-size:11px;line-height:15px}
+    .check-panel{display:none;min-height:180px;padding:24px;border:1px solid #B5DDDF;border-radius:var(--r20);background:var(--aqua)}.check-panel.active{display:flex;flex-direction:column;justify-content:center;gap:10px}.check-panel h2{margin:0;font-size:22px;line-height:29px}.check-panel p{max-width:760px;margin:0;color:var(--secondary);font-size:14px;line-height:21px}.check-summary{display:flex;flex-wrap:wrap;gap:8px}.check-summary span{padding:7px 10px;border:1px solid #B5DDDF;border-radius:var(--pill);background:white;font-size:12px;font-weight:600}
+    @media(max-width:1120px){.topbar{padding-inline:22px}main{padding-inline:22px}.projects{grid-template-columns:repeat(3,minmax(0,1fr));gap:7px}.project{min-height:121px;padding:9px}.project[aria-pressed=true]{padding:8px}.project-name{font-size:12px}.effect{padding:3px}.effect span{font-size:8px}.effect strong{font-size:10px}.metric{padding-inline:10px}}
+    @media(max-width:900px){.app{display:block;min-height:100vh}.sidebar{display:none}.workspace{min-height:100vh}.topbar{height:48px;flex-basis:48px;padding-inline:16px}.topbar-label{font-size:12px}.chip{min-height:30px;padding-inline:9px;font-size:11px}.mobile-cycle{height:34px;display:flex;align-items:center;justify-content:space-around;border-bottom:1px solid var(--border);background:white}.mobile-cycle span{display:flex;align-items:center;gap:4px;color:var(--muted);font-size:9px;font-weight:700}.mobile-cycle b{width:20px;height:20px;display:grid;place-items:center;border:1px solid var(--border);border-radius:50%;font-size:9px}.mobile-cycle [aria-current=step]{color:var(--plan)}.mobile-cycle [aria-current=step] b{border-color:var(--plan);background:var(--plan);color:white}
+      main{width:min(640px,100%);gap:6px;padding:8px 14px 9px}.intro h1{font-size:23px;line-height:28px;letter-spacing:-.4px}.intro p{margin-top:1px;font-size:11px;line-height:15px}.metrics{gap:5px}.metric{min-height:52px;padding:6px 8px;border-radius:var(--r8)}.metric dt{margin-bottom:1px;font-size:9px;line-height:12px}.metric dd{font-size:16px;line-height:20px}.metric.balance dd{font-size:12px}.coin-large{width:29px;height:29px}.catalog-heading h2{font-size:13px;line-height:17px}.catalog-heading p{font-size:9px;line-height:13px}.projects{grid-template-columns:1fr;gap:4px}.project{min-height:53px;gap:2px;padding:4px 8px;border-radius:var(--r12)}.project[aria-pressed=true]{padding:3px 7px}.project-top{gap:5px;align-items:center}.project-name{font-size:10px;line-height:13px}.cost{gap:2px;padding:1px 5px;font-size:9px;line-height:12px}.cost img{width:14px;height:14px}.effects{gap:4px}.effect{display:flex;align-items:center;justify-content:space-between;gap:3px;padding:1px 4px;font-size:8px;line-height:11px;white-space:nowrap}.effect span{display:inline;font-size:7px;line-height:10px}.effect strong{font-size:9px;line-height:11px}.category{font-size:8px;line-height:10px}.bottom{gap:6px}.help{font-size:9px;line-height:12px}.selection{gap:6px}.selected-name{max-width:110px;font-size:9px;line-height:12px}.review{min-height:44px;padding-inline:11px;font-size:11px}.feedback{font-size:10px;line-height:13px}
+    }
+    @media(max-width:420px){.topbar{padding-inline:10px}.chip{padding-inline:7px;font-size:10px}.mobile-cycle span{gap:3px;font-size:8px}.mobile-cycle b{width:18px;height:18px}main{padding-inline:9px}.intro h1{font-size:21px}.metric{padding-inline:6px}.coin-large{width:25px;height:25px}.project{padding-inline:5px}.project[aria-pressed=true]{padding-inline:4px}.project-name{font-size:9px}.cost{font-size:8px}.effect span{font-size:6.5px}.effect strong{font-size:8px}.category{font-size:7px}.selected-name{max-width:88px}.review{padding-inline:8px;font-size:10px}}
+    @media(max-height:820px) and (min-width:901px){main{gap:7px;padding-block:10px}.metric{min-height:64px}.project{min-height:111px;padding-block:7px}}
+    @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">Pular para os projetos</a>
+  <div class="app">
+    <aside class="sidebar" aria-label="Navegação do ciclo PDCA">
+      <a class="brand" href="01-home.html" aria-label="ACTA Experience — início"><img src="../assets/acta-logo.png" width="52" height="52" alt="ACTA Experience"></a>
+      <nav class="cycle" aria-label="Etapas do ciclo de melhoria"><ol>
+        <li><b aria-hidden="true">P</b><span>PLAN</span></li><li aria-current="step"><b aria-hidden="true">D</b><span>DO</span></li><li id="desktop-check-step"><b aria-hidden="true">C</b><span>CHECK</span></li><li><b aria-hidden="true">A</b><span>ACT</span></li>
+      </ol></nav>
+    </aside>
+    <div class="workspace">
+      <header class="topbar"><span class="topbar-label">Operação Resgate</span><div class="topmeta"><span class="chip" id="week-chip">Semana 1 de 4</span><span class="chip phase" id="phase-chip"><i class="phase-dot" aria-hidden="true"></i><span>DO</span></span><span class="chip" aria-label="Saldo atual"><img class="coin-small" src="../../../public/moedacta-static.svg" width="18" height="18" alt=""> <span id="top-balance">100</span> MoedACTAs</span></div></header>
+      <nav class="mobile-cycle" aria-label="Ciclo PDCA"><span><b aria-hidden="true">P</b>PLAN</span><span aria-current="step"><b aria-hidden="true">D</b>DO</span><span id="mobile-check-step"><b aria-hidden="true">C</b>CHECK</span><span><b aria-hidden="true">A</b>ACT</span></nav>
+      <main id="main">
+        <header class="intro"><div><h1 id="page-title">Escolha um projeto</h1><p id="page-description">Cada projeto afeta a operação de um jeito. Confira custo e consequência antes de confirmar.</p></div></header>
+        <dl class="metrics" aria-label="Indicadores atuais da operação">
+          <div class="metric"><div><dt>Atrasos</dt><dd id="delays">30%</dd></div></div>
+          <div class="metric"><div><dt>Qualidade</dt><dd id="quality">90%</dd></div></div>
+          <div class="metric"><div><dt>Moral</dt><dd id="morale">78%</dd></div></div>
+          <div class="metric balance"><div><dt>Saldo</dt><dd><span id="balance">100</span> MoedACTAs</dd></div><img class="coin-large" id="balance-coin" src="../../moedacta.svg" width="43" height="43" alt="MoedACTA"></div>
+        </dl>
+        <div class="catalog-heading"><h2 id="catalog-title">Projetos disponíveis</h2><p>Um projeto por semana</p></div>
+        <section class="projects" id="projects" aria-labelledby="catalog-title"></section>
+        <section class="check-panel" id="check-panel" aria-labelledby="check-title" aria-live="polite">
+          <h2 id="check-title" tabindex="-1">Projeto confirmado</h2><p id="check-message"></p><div class="check-summary" id="check-summary"></div>
+        </section>
+        <footer class="bottom" id="bottom-actions">
+          <p class="help">Os efeitos são aplicados conforme as regras e os eventos da semana. Cancelar mantém seu saldo e seus indicadores.</p>
+          <div class="selection"><span class="selected-name" id="selected-name" aria-live="polite">Selecione um projeto para revisar.</span><button class="review" id="review" type="button" disabled>Revisar escolha</button></div>
+          <p class="feedback" id="feedback" role="status" aria-live="polite" aria-atomic="true"></p>
+        </footer>
+      </main>
+    </div>
+  </div>
+
+  <dialog id="confirmation" aria-labelledby="dialog-title" aria-describedby="dialog-description">
+    <form class="dialog-body" method="dialog" id="confirm-form">
+      <div class="dialog-top"><h2 id="dialog-title" tabindex="-1">Confirmar projeto?</h2><button class="close-dialog" type="button" id="close-dialog" aria-label="Cancelar e fechar confirmação">×</button></div>
+      <p class="dialog-project" id="dialog-description"></p>
+      <dl class="money-summary" id="money-summary"></dl>
+      <div class="dialog-effects" id="dialog-effects"></div>
+      <p class="dialog-category" id="dialog-category"></p>
+      <p class="dialog-help">Cancelar mantém seu saldo e seus indicadores.</p>
+      <p class="dialog-warning" id="dialog-warning" role="alert" hidden></p>
+      <div class="dialog-actions"><button class="cancel" id="cancel" type="button">Cancelar</button><button class="confirm" id="confirm" type="submit">Confirmar projeto</button></div>
+      <p class="dialog-status" id="dialog-status" role="status" aria-live="polite"></p>
+    </form>
+  </dialog>
+
+  <script>
+    (() => {
+      'use strict';
+      // Os valores abaixo refletem agents/spec.md. Se integrar ao app, window.ACTA_DO_HOST
+      // pode expor getState() com {week,totalWeeks,balance,delays,quality,morale,
+      // usedProjects,phase} e confirmProject(projectId), que retorna o snapshot
+      // atualizado. Neste checkout não há src/domain nem controller; o modo local
+      // aplica os impactos-base e reinicia ao recarregar.
+      const PROJECTS = [
+        {id:'flow',name:'Reorganizar a separação',cost:24,delays:-10,quality:1,morale:1,category:'capacidade'},
+        {id:'scanner',name:'Instalar conferência digital',cost:25,delays:-3,quality:3,morale:0,category:'qualidade'},
+        {id:'routes',name:'Otimizar as rotas',cost:23,delays:-7,quality:0,morale:0,category:'transporte'},
+        {id:'staff',name:'Contratar turno extra',cost:35,delays:-12,quality:0,morale:-4,category:'capacidade'},
+        {id:'inspect',name:'Controle de qualidade',cost:18,delays:-2,quality:9,morale:-1,category:'qualidade'},
+        {id:'rush',name:'Acelerar a linha',cost:8,delays:-9,quality:-18,morale:-11,category:'capacidade'},
+        {id:'promo',name:'Campanha de marketing',cost:13,delays:5,quality:-3,morale:-3,category:'qualidade'},
+        {id:'maintenance',name:'Manutenção preventiva',cost:16,delays:-2,quality:2,morale:3,category:'capacidade'},
+        {id:'supplier',name:'Trocar fornecedor',cost:14,delays:-5,quality:-6,morale:-2,category:'transporte'}
+      ];
+      const INITIAL = Object.freeze({week:1,totalWeeks:4,balance:100,delays:30,quality:90,morale:78,usedProjects:[],phase:'DO'});
+      const host = window.ACTA_DO_HOST || null;
+      const state = normalizeState(host?.getState?.() || INITIAL);
+      let selectedId = null;
+      let confirming = false;
+      let lastFocused = null;
+      const $ = id => document.getElementById(id);
+      const ui = {week:$('week-chip'),topBalance:$('top-balance'),balance:$('balance'),delays:$('delays'),quality:$('quality'),morale:$('morale'),projects:$('projects'),selected:$('selected-name'),review:$('review'),dialog:$('confirmation'),dialogProject:$('dialog-description'),money:$('money-summary'),effects:$('dialog-effects'),category:$('dialog-category'),warning:$('dialog-warning'),status:$('dialog-status'),feedback:$('feedback'),phase:$('phase-chip'),checkPanel:$('check-panel'),checkMessage:$('check-message'),checkSummary:$('check-summary'),bottom:$('bottom-actions')};
+      function normalizeState(s){const local=s===INITIAL;return {week:toNumber(s.week,local?1:null),totalWeeks:toNumber(s.totalWeeks,local?4:null),balance:toNumber(s.balance,local?100:null),delays:toNumber(s.delays,local?30:null),quality:toNumber(s.quality,local?90:null),morale:toNumber(s.morale,local?78:null),usedProjects:Array.isArray(s.usedProjects)?[...s.usedProjects]:[],phase:s.phase||'DO'};}
+      function toNumber(v,fallback){const n=Number(v);return Number.isFinite(n)?n:fallback;}
+      function fmt(n){return n==null?'—':new Intl.NumberFormat('pt-BR',{maximumFractionDigits:2}).format(n);}
+      function effectText(value){return value>0?`+${fmt(value)}`:fmt(value);}
+      function effective(value,current,min,max){return Math.max(min,Math.min(max,current+value))-current;}
+      function deltaLabel(name,value){return `${name} ${effectText(value)}`;}
+      const reducedMotion=window.matchMedia('(prefers-reduced-motion: reduce)');
+      function coinPath(){return '../../../public/moedacta-static.svg';}
+      function syncCoinAssets(){document.querySelectorAll('.coin-small').forEach(img=>{img.src=coinPath();});$('balance-coin').src=reducedMotion.matches?coinPath():'../../moedacta.svg';}
+      function coin(){const img=document.createElement('img');img.className='coin-small';img.src=coinPath();img.alt='';img.width=18;img.height=18;return img;}
+      function render(){
+        ui.week.textContent=`Semana ${fmt(state.week)} de ${fmt(state.totalWeeks)}`;
+        ui.balance.textContent=fmt(state.balance);ui.topBalance.textContent=fmt(state.balance);
+        ui.delays.textContent=`${fmt(state.delays)}%`;ui.quality.textContent=`${fmt(state.quality)}%`;ui.morale.textContent=`${fmt(state.morale)}%`;
+        const afterDo=state.phase==='CHECK';
+        $('page-title').textContent=afterDo?'Projeto confirmado':'Escolha um projeto';
+        $('page-description').textContent=afterDo?'Os efeitos do projeto foram aplicados. A etapa seguinte é CHECK.':'Cada projeto afeta a operação de um jeito. Confira custo e consequência antes de confirmar.';
+        ui.phase.querySelector('span:last-child').textContent=afterDo?'CHECK':'DO';
+        $('desktop-check-step').setAttribute('aria-current',afterDo?'step':'false');
+        $('mobile-check-step').setAttribute('aria-current',afterDo?'step':'false');
+        ui.projects.hidden=afterDo;document.querySelector('.catalog-heading').hidden=afterDo;
+        ui.bottom.hidden=afterDo;ui.checkPanel.classList.toggle('active',afterDo);
+        if(afterDo){ui.review.disabled=true;return;}
+        ui.projects.replaceChildren();
+        PROJECTS.forEach(project=>{
+          const used=state.usedProjects.includes(project.id);const balanceKnown=state.balance!=null;const shortfall=balanceKnown?Math.max(0,project.cost-state.balance):null;const insufficient=balanceKnown&&shortfall>0;const unavailable=used||insufficient||!balanceKnown;
+          const button=document.createElement('button');button.type='button';button.className='project';button.disabled=unavailable;button.setAttribute('aria-pressed',String(selectedId===project.id));
+          const availability=used?'Já usado nesta operação':!balanceKnown?'Saldo indisponível. Projeto indisponível.':insufficient?`Saldo insuficiente. Faltam ${fmt(shortfall)} MoedACTAs.`:`Disponível para seleção.`;
+          button.setAttribute('aria-label',`${project.name}. Custo ${project.cost} MoedACTAs. Atrasos ${effectText(project.delays)} pontos percentuais. Qualidade ${effectText(project.quality)} pontos. Moral ${effectText(project.morale)} pontos. Categoria ${project.category}. ${availability} ${unavailable?'Indisponível.':'Selecionar.'}`);
+          const top=document.createElement('div');top.className='project-top';const name=document.createElement('span');name.className='project-name';name.textContent=project.name;const cost=document.createElement('span');cost.className='cost';cost.append(coin(),document.createTextNode(String(project.cost)));top.append(name,cost);
+          const effects=document.createElement('div');effects.className='effects';[['Atrasos',project.delays],['Qualidade',project.quality],['Moral',project.morale]].forEach(([label,value])=>{const item=document.createElement('span');item.className='effect';const l=document.createElement('span');l.textContent=label;const v=document.createElement('strong');v.textContent=effectText(value);item.append(l,v);effects.append(item);});
+          const category=document.createElement('div');category.className='category';const cat=document.createElement('span');cat.textContent=`Categoria: ${project.category}`;const status=document.createElement('strong');status.className='availability';if(used)status.textContent='Já usado nesta operação';else if(!balanceKnown)status.textContent='Indisponível';else if(insufficient)status.append(coin(),document.createTextNode(`Faltam ${fmt(shortfall)}`));else status.textContent=selectedId===project.id?'Selecionado':'Selecionar';category.append(cat,status);
+          button.append(top,effects,category);button.addEventListener('click',()=>selectProject(project.id));ui.projects.append(button);
+        });
+        const selected=PROJECTS.find(project=>project.id===selectedId);
+        ui.selected.textContent=selected?selected.name:'Selecione um projeto para revisar.';ui.review.disabled=!selected||confirming;
+      }
+      function selectProject(id){const p=PROJECTS.find(item=>item.id===id);if(!p||state.usedProjects.includes(id)||p.cost>state.balance)return;selectedId=id;ui.feedback.textContent='';render();}
+      function appendMoney(label,value,negative=false){const wrap=document.createElement('div');wrap.className='money-item';const dt=document.createElement('dt');dt.textContent=label;const dd=document.createElement('dd');dd.append(coin(),document.createTextNode(`${negative?'−':''}${fmt(value)} MoedACTAs`));wrap.append(dt,dd);ui.money.append(wrap);}
+      function renderMoney(p){ui.money.replaceChildren();appendMoney('Saldo atual',state.balance);appendMoney('Custo',p.cost,true);appendMoney('Saldo após confirmação',state.balance==null?null:Math.max(0,state.balance-p.cost));}
+      function openConfirmation(){const p=PROJECTS.find(item=>item.id===selectedId);if(!p)return;lastFocused=document.activeElement;ui.dialogProject.textContent=p.name;renderMoney(p);ui.effects.replaceChildren();[['Atrasos',p.delays,'p.p.'],['Qualidade',p.quality,'pontos'],['Moral',p.morale,'pontos']].forEach(([label,value,unit])=>{const el=document.createElement('div');el.className='dialog-effect';const labelEl=document.createElement('span');labelEl.textContent=label;el.append(labelEl,document.createTextNode(`${effectText(value)} ${unit}`));ui.effects.append(el);});ui.category.textContent=`Categoria: ${p.category}`;ui.warning.hidden=true;ui.warning.textContent='';ui.status.textContent='';ui.confirm.disabled=false;ui.review.disabled=true;ui.dialog.showModal();$('dialog-title').focus();}
+      function closeDialog(){if(ui.dialog.open)ui.dialog.close('cancel');}
+      async function applyProject(){if(confirming)return;const p=PROJECTS.find(item=>item.id===selectedId);if(!p)return;if(typeof host?.getState==='function'){try{Object.assign(state,normalizeState(await host.getState()));renderMoney(p);render();}catch{ui.warning.hidden=false;ui.warning.textContent='Não foi possível atualizar o saldo da partida. A confirmação foi bloqueada.';ui.confirm.disabled=true;return;}}const shortage=state.balance==null?null:Math.max(0,p.cost-state.balance);if(state.usedProjects.includes(p.id)){ui.warning.hidden=false;ui.warning.textContent='Este projeto já foi usado nesta operação.';ui.confirm.disabled=true;return;}if(shortage==null){ui.warning.hidden=false;ui.warning.textContent='Saldo insuficiente para este projeto. O saldo atual não está disponível.';ui.confirm.disabled=true;return;}if(shortage>0){ui.warning.replaceChildren(document.createTextNode('Saldo insuficiente para este projeto. Faltam '),coin(),document.createTextNode(` ${fmt(shortage)} MoedACTAs.`));ui.warning.hidden=false;ui.confirm.disabled=true;return;}
+        if(host&&typeof host.confirmProject!=='function'){ui.warning.hidden=false;ui.warning.textContent='A confirmação não foi executada: o controller do jogo não está disponível.';ui.confirm.disabled=true;return;}
+        confirming=true;ui.confirm.disabled=true;ui.cancel.disabled=true;
+        try{
+          if(typeof host?.confirmProject==='function'){
+            const result=await host.confirmProject(p.id);if(result&&typeof result==='object'){Object.assign(state,normalizeState(result));}
+            else if(typeof host.getState==='function'){Object.assign(state,normalizeState(await host.getState()));}
+            if(state.phase!=='CHECK'&&!state.usedProjects.includes(p.id)){throw new Error('controller did not confirm project');}
+            ui.checkMessage.textContent='O controller confirmou a escolha. A tela CHECK pertence ao app integrado.';
+            closeDialog();ui.feedback.textContent='Projeto confirmado pelo estado da partida.';render();return;
+          }
+          // Protótipo local: aplica os impactos-base e os limites oficiais do spec.
+          // Eventos e pontos ficam para CHECK e o controller real, não são inventados aqui.
+          state.balance-=p.cost;state.delays+=effective(p.delays,state.delays,0,50);state.quality+=effective(p.quality,state.quality,0,100);state.morale+=effective(p.morale,state.morale,0,100);state.usedProjects.push(p.id);state.phase='CHECK';
+          ui.checkMessage.textContent=`${p.name}: os impactos-base foram aplicados. Os efeitos dos eventos da semana e a pontuação pertencem à etapa CHECK.`;
+          ui.checkSummary.replaceChildren();[['Atrasos',state.delays],['Qualidade',state.quality],['Moral',state.morale],['Saldo',state.balance]].forEach(([label,value])=>{const span=document.createElement('span');span.append(document.createTextNode(`${label}: `));if(label==='Saldo')span.append(coin());span.append(document.createTextNode(`${fmt(value)}${label==='Saldo'?' MoedACTAs':label==='Atrasos'||label==='Qualidade'?'%':''}`));ui.checkSummary.append(span);});
+          closeDialog();render();ui.feedback.textContent=`Projeto confirmado: ${p.name}. A etapa DO foi concluída.`;
+        }catch(error){ui.warning.hidden=false;ui.warning.textContent='Não foi possível confirmar o projeto. Confira o estado atual da partida.';ui.status.textContent='';}
+        finally{confirming=false;ui.cancel.disabled=false;if(ui.dialog.open)ui.confirm.disabled=false;render();}
+      }
+      $('review').addEventListener('click',openConfirmation);$('confirm-form').addEventListener('submit',event=>{event.preventDefault();applyProject();});$('cancel').addEventListener('click',closeDialog);$('close-dialog').addEventListener('click',closeDialog);
+      ui.dialog.addEventListener('cancel',event=>{event.preventDefault();closeDialog();});ui.dialog.addEventListener('close',()=>{confirming=false;render();if(state.phase==='CHECK')$('check-title').focus();else if(lastFocused?.isConnected)lastFocused.focus();});
+      syncCoinAssets();reducedMotion.addEventListener?.('change',syncCoinAssets);render();if(!host)ui.feedback.textContent='Protótipo DO local: aplica impactos-base oficiais nesta página. O app/controller e a etapa CHECK não estão presentes neste checkout.';
+    })();
+  </script>
+</body>
+</html>
