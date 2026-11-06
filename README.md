@@ -43,13 +43,17 @@ npm ci
 npm run dev
 ```
 
-O Vite informa no terminal o endereço local para abrir no navegador. Para gerar os arquivos estáticos de produção:
+Com a base configurada para o GitHub Pages, abra `http://localhost:5173/jogacta/`. Para gerar os arquivos estáticos de produção:
 
 ```bash
 npm run build
 ```
 
 Os arquivos são gerados em `dist/`, que não deve ser versionado. Os demais scripts disponíveis são `npm test` e `npm run lint`.
+
+## 🚢 Publicação
+
+O workflow [Deploy GitHub Pages](.github/workflows/deploy-pages.yml) executa testes, lint e build ao receber alterações na `main`, e publica o conteúdo de `dist/` em [kv-aliaga.github.io/jogacta](https://kv-aliaga.github.io/jogacta/). Também pode ser iniciado manualmente pela aba **Actions** do GitHub.
 
 ## 🏗️ Arquitetura e estrutura
 
